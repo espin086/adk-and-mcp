@@ -1,2 +1,8 @@
 # ai-health-assistant
-This AI-powered chatbot serves as your intelligent assistant for all things health, diet, and exercise. Leveraging a suite of integrated tools, it provides personalized guidance, answers your questions, and helps you achieve your wellness goals.
+
+
+Currently working on tutorial for multi-agent systems here before starting this project: https://github.com/google/adk-docs/blob/main/examples/python/tutorial/agent_team/adk_tutorial.ipynb
+
+
+
+
