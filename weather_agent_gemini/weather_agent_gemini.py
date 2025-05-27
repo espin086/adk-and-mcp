@@ -79,7 +79,7 @@ You can use the 'get_weather' tool to get the weather information for a specific
 """
 
 root_agent = Agent(
-    name="weather_agent_v1",
+    name="weather_agent_v1_gemini",
     model=AGENT_MODEL,
     description=DESCRIPTION,
     instruction=INSTRUCTIONS,
