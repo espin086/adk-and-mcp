@@ -10,7 +10,7 @@ logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
 
-MODEL_GEMINI_2_0_FLASH = "gemini-2.0-flash"
+MODEL_GEMINI_2_0_FLASH = "gemini-2.5-flash-preview-05-20"
 
 
 def get_weather(city: str) -> dict:

@@ -1,0 +1,115 @@
+{
+  "eval_set_id": "weather_tests",
+  "name": "weather_tests",
+  "description": null,
+  "eval_cases": [
+    {
+      "eval_id": "case2cf6ea",
+      "conversation": [
+        {
+          "invocation_id": "e-f51956d6-01e6-441f-b040-62686f012450",
+          "user_content": {
+            "parts": [
+              {
+                "video_metadata": null,
+                "thought": null,
+                "inline_data": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "file_data": null,
+                "function_call": null,
+                "function_response": null,
+                "text": "what is the weather in los angeles?"
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "video_metadata": null,
+                "thought": null,
+                "inline_data": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "file_data": null,
+                "function_call": null,
+                "function_response": null,
+                "text": "I'm sorry, but I don't have weather information for Los Angeles at the moment. If you have another city in mind, feel free to ask!"
+              }
+            ],
+            "role": null
+          },
+          "intermediate_data": {
+            "tool_uses": [
+              {
+                "id": "call_kFxXH3u1UYrXPGF4tiQc7Bvn",
+                "args": {
+                  "city": "Los Angeles"
+                },
+                "name": "get_weather"
+              }
+            ],
+            "intermediate_responses": []
+          },
+          "creation_timestamp": 1748367190.009147
+        },
+        {
+          "invocation_id": "e-26376f2b-96d7-427c-a604-b60bd702a8f0",
+          "user_content": {
+            "parts": [
+              {
+                "video_metadata": null,
+                "thought": null,
+                "inline_data": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "file_data": null,
+                "function_call": null,
+                "function_response": null,
+                "text": "What is the weather in new york?"
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "video_metadata": null,
+                "thought": null,
+                "inline_data": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "file_data": null,
+                "function_call": null,
+                "function_response": null,
+                "text": "The weather in New York is sunny with a temperature of 25°C. If you need more details or want the forecast for another city, just let me know!"
+              }
+            ],
+            "role": null
+          },
+          "intermediate_data": {
+            "tool_uses": [
+              {
+                "id": "call_TGQL99dTno0tnzjMGX0BVe3H",
+                "args": {
+                  "city": "New York"
+                },
+                "name": "get_weather"
+              }
+            ],
+            "intermediate_responses": []
+          },
+          "creation_timestamp": 1748367201.256672
+        }
+      ],
+      "session_input": {
+        "app_name": "weather_agent_openai",
+        "user_id": "user",
+        "state": {}
+      },
+      "creation_timestamp": 1748367301.764626
+    }
+  ],
+  "creation_timestamp": 1748367295.253762
+}
