@@ -38,11 +38,11 @@ def get_weather(city: str) -> dict:
     
 
 root_agent = Agent(
-    name="weather_agent_gpt",
+    name="weather_agent_claude",
     # Key change: Wrap the LiteLLM model identifier
     model=LiteLlm(model=MODEL_CLAUDE_SONNET),
-    description="Provides weather information (using GPT-4o).",
-    instruction="You are a helpful weather assistant powered by GPT-4o. "
+    description="Provides weather information (using Claude).",
+    instruction="You are a helpful weather assistant powered by Anthropic's Claude model. "
                 "Use the 'get_weather' tool for city weather requests. "
                 "Clearly present successful reports or polite error messages based on the tool's output status.",
     tools=[get_weather], # Re-use the same tool
