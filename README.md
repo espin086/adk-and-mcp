@@ -56,6 +56,17 @@ Below is a summary of the agents available in this repository:
     *   **Dependencies**: Requires a Google API key (implicitly, for Gemini models).
     *   **Tools**: `get_weather` (mock data)
 
+*   **`loop_agent_writer_critic`**:
+    *   **Root Agent Name**: `IterativeWritingPipeline`
+    *   **Functionality**: A sequential agent that demonstrates an iterative writer-critic loop. It starts with an initial topic from the user, writes a short draft, and then repeatedly critiques and refines the draft until the critic agent decides it's complete.
+    *   **Sub-Agents**: `InputMapper`, `InitialWriterAgent`, `RefinementLoop` (which contains `CriticAgent` and `RefinerAgent`).
+    *   **Models Used**: `gemini-2.0-flash`
+    *   **Tools**: A custom `exit_loop` tool is used to programmatically stop the refinement cycle.
+    *   **Features**: Demonstrates a `SequentialAgent` pipeline, a `LoopAgent` for iterative tasks, complex state management between agents, and using a custom tool to control workflow logic.
+    *   **How to Run**:
+        *   **Interactive CLI**: Run `adk run loop_agent_writer_critic`. When the prompt `>` appears, enter a topic for the story (e.g., "a story about a lost robot").
+        *   **Web UI**: Launch `adk web` and select `loop_agent_writer_critic.agent` from the list.
+
 ## Google Agent Development Kit (ADK)
 
 The Agent Development Kit (ADK) is a flexible and modular framework by Google for developing and deploying AI agents. It is model-agnostic, deployment-agnostic, and designed for compatibility with other frameworks, making it easier to create, deploy, and orchestrate agentic architectures.
