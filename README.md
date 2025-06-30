@@ -75,37 +75,7 @@ The `custom_workflow_agent` is a sophisticated agent designed to demonstrate com
 
 The agent's logic is composed of several specialized sub-agents that are orchestrated by a central `StoryFlowAgent`. The workflow includes loops, sequential execution, and conditional logic, as illustrated in the diagram below:
 
-```plantuml
-@startuml
-title StoryFlowAgent Logic
-
-start
-
-:Generate Initial Story
-(story_generator);
-
-partition "Critic-Reviser Loop (LoopAgent)" {
-  repeat
-    :Critique Story (critic);
-    :Revise Story (reviser);
-  repeat while (2 iterations)
-}
-
-partition "Post-Processing (SequentialAgent)" {
-    :Check Grammar (grammar_check);
-    :Check Tone (tone_check);
-}
-
-if (Tone is "negative"?) then (yes)
-    :Regenerate Story (story_generator);
-else (no)
-    :Keep Current Story;
-endif
-
-stop
-
-@enduml
-```
+![StoryFlowAgent Architecture](./custom_workflow_agent/architecture/architecture.png)
 
 ### How to Run
 
