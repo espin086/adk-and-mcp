@@ -67,6 +67,62 @@ Below is a summary of the agents available in this repository:
         *   **Interactive CLI**: Run `adk run loop_agent_writer_critic`. When the prompt `>` appears, enter a topic for the story (e.g., "a story about a lost robot").
         *   **Web UI**: Launch `adk web` and select `loop_agent_writer_critic.agent` from the list.
 
+## Custom Workflow Agent
+
+The `custom_workflow_agent` is a sophisticated agent designed to demonstrate complex workflow orchestration using the Agent Development Kit (ADK). It follows a multi-step process to generate, critique, revise, and refine a story based on a given topic.
+
+### Architecture
+
+The agent's logic is composed of several specialized sub-agents that are orchestrated by a central `StoryFlowAgent`. The workflow includes loops, sequential execution, and conditional logic, as illustrated in the diagram below:
+
+```plantuml
+@startuml
+title StoryFlowAgent Logic
+
+start
+
+:Generate Initial Story
+(story_generator);
+
+partition "Critic-Reviser Loop (LoopAgent)" {
+  repeat
+    :Critique Story (critic);
+    :Revise Story (reviser);
+  repeat while (2 iterations)
+}
+
+partition "Post-Processing (SequentialAgent)" {
+    :Check Grammar (grammar_check);
+    :Check Tone (tone_check);
+}
+
+if (Tone is "negative"?) then (yes)
+    :Regenerate Story (story_generator);
+else (no)
+    :Keep Current Story;
+endif
+
+stop
+
+@enduml
+```
+
+### How to Run
+
+You can run this agent from the command line in either interactive mode or via the web interface.
+
+**Interactive CLI:**
+
+```bash
+adk run custom_workflow_agent
+```
+
+**Web Interface:**
+
+```bash
+adk web custom_workflow_agent
+```
+
 ## Google Agent Development Kit (ADK)
 
 The Agent Development Kit (ADK) is a flexible and modular framework by Google for developing and deploying AI agents. It is model-agnostic, deployment-agnostic, and designed for compatibility with other frameworks, making it easier to create, deploy, and orchestrate agentic architectures.
