@@ -248,8 +248,8 @@ class CoverLetterRequest(BaseModel):
     company_name: str
     position_title: str
     user_background: Optional[str] = None
-    tone: str = Field("professional", regex="^(professional|casual|enthusiastic|formal)$")
-    length: str = Field("medium", regex="^(short|medium|long)$")
+    tone: str = Field("professional", pattern="^(professional|casual|enthusiastic|formal)$")
+    length: str = Field("medium", pattern="^(short|medium|long)$")
 
 
 class CoverLetterResponse(BaseModel):
@@ -265,7 +265,7 @@ class InterviewPrepRequest(BaseModel):
     job_description: str
     company_name: str
     position_title: str
-    interview_type: str = Field("general", regex="^(general|technical|behavioral|case_study)$")
+    interview_type: str = Field("general", pattern="^(general|technical|behavioral|case_study)$")
     experience_level: Optional[ExperienceLevel] = None
 
 
@@ -273,7 +273,7 @@ class InterviewQuestion(BaseModel):
     """Interview question model."""
     question: str
     category: str
-    difficulty: str = Field(..., regex="^(easy|medium|hard)$")
+    difficulty: str = Field(..., pattern="^(easy|medium|hard)$")
     suggested_answer: Optional[str] = None
     tips: List[str] = Field(default_factory=list)
 
@@ -292,7 +292,7 @@ class JobMarketAnalysis(BaseModel):
     skill: str
     demand_score: float = Field(..., ge=0, le=100)
     average_salary: Optional[int] = None
-    growth_trend: str = Field(..., regex="^(increasing|stable|decreasing)$")
+    growth_trend: str = Field(..., pattern="^(increasing|stable|decreasing)$")
     top_companies: List[str] = Field(default_factory=list)
     related_skills: List[str] = Field(default_factory=list)
 
