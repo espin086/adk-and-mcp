@@ -1,4 +1,12 @@
-# AI Agents Showcase (ADK Examples)
+# Agent Platform Patterns on ADK + MCP
+
+A working set of agents on Google's Agent Development Kit that covers the architectural patterns a multi-agent platform actually needs: single-agent tool use, stateful multi-agent delegation, session-state persistence across turns, and model-agnostic swapping (Gemini, GPT-4.1, Claude Opus 4 via LiteLLM) behind the same agent interface.
+
+**Why MCP for tool integration:** the Google Maps and filesystem agents reach their tools through Model Context Protocol instead of a hand-rolled function-calling wrapper per tool. That's the difference between a one-off integration and a platform decision. a new tool that speaks MCP plugs into any agent here without changing the agent's code, which is exactly the problem a team building "one AI platform for many product teams' tools" has to solve.
+
+**Why the stateful/stateless split matters:** `weather_multi_agents_w_state` persists the user's unit preference across turns via session state; `weather_multi_agents` does not. Session state is what turns a stateless request-response agent into something that behaves like a real assistant, and it's also where most agent-platform bugs live (stale state, race conditions across concurrent sessions).
+
+**Relevant to:** AI platform and agent-tooling architecture, standards-based tool integration (MCP) over point-to-point glue, multi-agent delegation and session-state design, model-agnostic agent runtime design.
 
 This repository contains a collection of example AI agents built using the Google Agent Development Kit (ADK). These examples demonstrate various capabilities of ADK, from simple single-agent setups to multi-agent systems and integration with external tools via Model Context Protocol (MCP).
 
@@ -239,7 +247,3 @@ gcloud run services add-iam-policy-binding SERVICE_NAME \
 *   **Vertex AI Agent Engine**: For scalable, managed deployment of agents.
 
 This README provides a starting point. Ensure you consult the official ADK documentation for the most up-to-date and detailed information.
-
-
-
-
